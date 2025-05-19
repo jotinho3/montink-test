@@ -68,20 +68,15 @@ export default function Header() {
 
         {/* Logo centralizado */}
         <span className=" text-xl font-bold tracking-tight text-black text-center md:text-left">
-          <Link
-            href={"/"}
-            >
-          <Image 
-            src="/MainIconPng.png"
-            alt="Logo da loja"
-            width={100}
-            height={40}
-            className="h-10 w-auto"
-            >
-            
-          </Image>
+          <Link href={"/"}>
+            <Image 
+              src="/MainIconPng.png"
+              alt="Logo da loja"
+              width={100}
+              height={40}
+              className="h-10 w-auto"
+            />
           </Link>
-          
         </span>
 
         {/* Desktop: Barra de pesquisa centralizada */}
@@ -102,17 +97,17 @@ export default function Header() {
 
         {/* Desktop: Ícones de ação */}
         <div className="items-center gap-5 hidden md:flex">
-          <div className="relative flex items-center cursor-pointer">
+          <Link href="/carrinho" aria-label="Carrinho" className="relative flex items-center cursor-pointer">
             <FaShoppingCart className="text-3xl text-black rounded-full p-1 transition" />
             <span className="ml-1 text-sm font-bold text-black">{cartCount}</span>
-          </div>
-          <div className="relative flex items-center cursor-pointer">
+          </Link>
+          <Link href="/favoritos" aria-label="Favoritos" className="relative flex items-center cursor-pointer">
             <FaHeart className="text-3xl text-black rounded-full p-1 transition" />
             <span className="ml-1 text-sm font-bold text-black">{favCount}</span>
-          </div>
-          <a href="/conta" aria-label="Usuário" className="cursor-pointer">
+          </Link>
+          <Link href="/conta" aria-label="Usuário" className="cursor-pointer">
             <FaUser className="text-3xl text-black rounded-full p-1 transition" />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile: Ícones à direita */}
@@ -127,13 +122,13 @@ export default function Header() {
           >
             <FaSearch size={18} className="text-2xl text-black" />
           </button>
-          <a href="/carrinho" aria-label="Carrinho" className="relative flex items-center">
+          <Link href="/carrinho" aria-label="Carrinho" className="relative flex items-center">
             <FaShoppingCart className="text-3xl text-black rounded-full p-1 transition" />
             <span className="ml-1 text-sm font-bold text-black">{cartCount}</span>
-          </a>
-          <a href="/conta" aria-label="Usuário">
+          </Link>
+          <Link href="/conta" aria-label="Usuário">
             <FaUser className="text-3xl text-black rounded-full p-1 transition" />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -178,29 +173,29 @@ export default function Header() {
               <ul className="flex flex-col gap-2">
                 {menuItems.map((item) => (
                   <li key={item.href}>
-                    <a
+                    <Link
                       href={item.href}
                       className="block py-2 px-2 text-black rounded hover:bg-black/5 transition"
                       onClick={() => setDrawerOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </nav>
             <div className="flex gap-6 px-4 py-4 border-t border-black/10 justify-center">
-              <a href="/carrinho" aria-label="Carrinho" className="relative flex items-center">
+              <Link href="/carrinho" aria-label="Carrinho" className="relative flex items-center">
                 <FaShoppingCart className="text-3xl text-black rounded-full p-1 transition" />
                 <span className="ml-1 text-sm font-bold text-black">{cartCount}</span>
-              </a>
-              <a href="/favoritos" aria-label="Favoritos" className="relative flex items-center">
+              </Link>
+              <Link href="/favoritos" aria-label="Favoritos" className="relative flex items-center">
                 <FaHeart className="text-2xl text-black" />
                 <span className="ml-1 text-sm font-bold text-black">{favCount}</span>
-              </a>
-              <a href="/conta" aria-label="Usuário">
+              </Link>
+              <Link href="/conta" aria-label="Usuário">
                 <FaUser className="text-3xl text-black rounded-full p-1 transition" />
-              </a>
+              </Link>
             </div>
           </motion.aside>
         )}
