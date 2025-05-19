@@ -88,4 +88,4 @@ Este projeto é apenas para fins de teste e estudo.
 
 ---
 
-Feito com 💙 por [Seu Nome]
+Feito com 💙 por João Pedro Marques Chaves!
