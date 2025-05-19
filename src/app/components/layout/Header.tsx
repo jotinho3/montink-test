@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaBars, FaTimes } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaHeart, FaUser, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 

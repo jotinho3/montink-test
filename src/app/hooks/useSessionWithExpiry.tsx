@@ -1,7 +1,19 @@
 import { useCallback } from "react";
 
+type ProductSession = {
+  cep: string;
+  selectedSize: string | null;
+  selectedColor: string | null;
+  cepResult: {
+    logradouro?: string;
+    bairro?: string;
+    localidade?: string;
+    uf?: string;
+  } | null;
+};
+
 export default function useSessionWithExpiry() {
-  const set = useCallback((key: string, value: any, ttlMinutes: number) => {
+  const set = useCallback((key: string, value: ProductSession, ttlMinutes: number) => {
     const now = new Date();
     const item = {
       value,
@@ -10,7 +22,7 @@ export default function useSessionWithExpiry() {
     sessionStorage.setItem(key, JSON.stringify(item));
   }, []);
 
-  const get = useCallback((key: string) => {
+  const get = useCallback((key: string): ProductSession | null => {
     if (typeof window === "undefined") return null;
     const itemStr = sessionStorage.getItem(key);
     if (!itemStr) return null;
@@ -20,7 +32,7 @@ export default function useSessionWithExpiry() {
         sessionStorage.removeItem(key);
         return null;
       }
-      return item.value;
+      return item.value as ProductSession;
     } catch {
       return null;
     }

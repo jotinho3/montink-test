@@ -42,8 +42,17 @@ export default function Card({
 
   function handleComprarClick(e: React.MouseEvent) {
     e.preventDefault();
-    onAddToCart && onAddToCart();
+    if (onAddToCart) {
+      onAddToCart();
+    }
     router.push(`/${slug}`);
+  }
+
+  function handleFavoriteClick(e: React.MouseEvent) {
+    e.preventDefault();
+    if (onFavorite) {
+      onFavorite();
+    }
   }
 
   return (
@@ -85,10 +94,7 @@ export default function Card({
           </button>
           <button
             className="p-2 rounded border border-black/10 text-black hover:bg-black hover:text-white transition"
-            onClick={(e) => {
-              e.preventDefault();
-              onFavorite && onFavorite();
-            }}
+            onClick={handleFavoriteClick}
             aria-label="Favoritar"
             tabIndex={-1}
             type="button"
