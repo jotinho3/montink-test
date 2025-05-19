@@ -23,7 +23,7 @@ Este é um projeto desenvolvido com [Next.js](https://nextjs.org), iniciado com 
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/montink-test.git
+git clone https://github.com/jotinho3/montink-test.git
 cd montink-test
 npm install
 # ou
